@@ -1,0 +1,46 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+            
+            <h1><span><i class="fas fa-campground" id="icon"></span></i> Welcome To YelpCamps</h1>
+            <p>view our hand-picked campgrounds from all over the world</p>
+            <p><a class="btn btn-primary btn-lg" href="/campgrounds/new">Add New campground</a></p>
+            <p>
+                <form class="form-inline" action="/campgrounds" method="GET">
+                <div class="form-group">
+                    <input class ='form-control'type="text" name="search" placeholder="Campground search">
+                    <input class="btn btn-success "type="submit" value="search" id="">
+                </div>
+                </form>
+            </p>
+        </div>
+    </header>
+
+    <div class="row text-center" style="display: flex ; flex-wrap: wrap;">
+       <% if(noMatch!== undefined) { %>
+        <div class="col-md-12">
+            <h3><%= noMatch %></h3>
+        </div>
+       <% } %>
+       
+        <% campgrounds.forEach(function(campground){ %>
+        <div class="col-md-3 col-sm-6">
+            <div class="thumbnail">
+                <img src="<%=campground.image %>"alt="" style="width: 400px;" >
+                 <div class="caption">
+                    <h4><%= campground.name %></h4>
+                    <div>
+                        <p><span class="badge label-primary"><i class="fas fa-thumbs-up"></i> <%= campground.likes.length %></span></p>
+                    </div>
+                    
+                    <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">Learn more</a>
+                    
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>
+<%- include("../partials/footer") %>
