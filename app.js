@@ -16,7 +16,7 @@ const   express                 =   require("express"),
         commentRoutes           =   require('./routes/comment'),
         campgroundRoutes        =   require('./routes/campground');
 // seedDB();
-mongoose.connect('mongodb+srv://devsprout:mongodb@cluster0-gldqn.mongodb.net/test?retryWrites=true&w=majority',{ useNewUrlParser: true,useUnifiedTopology:true,useFindAndModify:false });
+mongoose.connect(porcess.env.DatabaseUrl,{ useNewUrlParser: true,useUnifiedTopology:true,useFindAndModify:false });
 
 app.set("view engine","ejs");
 
