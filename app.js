@@ -17,7 +17,7 @@ const   express                 =   require("express"),
         campgroundRoutes        =   require('./routes/campground');
 // seedDB();
 
-mongoose.connect(process.env.DatabaseUrl,{ useNewUrlParser: true,useUnifiedTopology:true,useFindAndModify:false });
+mongoose.connect(process.env.DATABASEURL,{ useNewUrlParser: true,useUnifiedTopology:true,useFindAndModify:false });
 
 app.set("view engine","ejs");
 
