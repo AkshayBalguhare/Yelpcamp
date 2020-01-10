@@ -16,7 +16,7 @@ const   express                 =   require("express"),
         commentRoutes           =   require('./routes/comment'),
         campgroundRoutes        =   require('./routes/campground');
 // seedDB();
-
+console.log()
 mongoose.connect(process.env.DATABASEURL,{ useNewUrlParser: true,useUnifiedTopology:true,useFindAndModify:false });
 
 app.set("view engine","ejs");
